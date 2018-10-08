@@ -112,7 +112,7 @@ public class TweetObjectJPAWriter implements ItemWriter {
                 Long oldRetweets = loadedTweet.getRetweetCount();
                 Long newRetweets = newTweet.getRetweetCount();
                 loadedTweet.setFavoriteCount(newFavs > oldFavs ? newFavs : oldFavs);
-                loadedTweet.setFavoriteCount(newRetweets > oldRetweets ? newRetweets : oldRetweets);
+                loadedTweet.setRetweetCount(newRetweets > oldRetweets ? newRetweets : oldRetweets);
                 
                 entityManager.merge(loadedTweet);
             } else {
